@@ -56,6 +56,11 @@ class ThemeArchiveTocPlugin extends ThemePlugin {
 			$publishedArticlesArchive[$issue->getId()] = $publishedArticlesInSections;
 		}
 
-		$templateMgr->assign("publishedArticlesArchive", $publishedArticlesArchive);
+		$pubIdPlugins = PluginRegistry::loadCategory('pubIds', true);
+
+		$templateMgr->assign(array(
+			"publishedArticlesArchive" => $publishedArticlesArchive,
+			"pubIdPlugins" => $pubIdPlugins
+		));
 	}
 }
